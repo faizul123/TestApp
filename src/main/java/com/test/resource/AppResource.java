@@ -18,12 +18,6 @@ public class AppResource implements AppResourceInf {
 	}
 
 	@Override
-	public DefaultResponse download(String key) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public DefaultResponse publish(String id) {
 		// TODO Auto-generated method stub
 		return null;

@@ -16,25 +16,21 @@ public interface AppResourceInf {
 	public DefaultResponse newApp(AppInfo appInfo);
 	
 	
-	@RequestMapping(
-				value = URLDirectory.download,
-				method = RequestMethod.GET
-			)
-	public DefaultResponse download(String key);
 	
 	@RequestMapping(
 				value = URLDirectory.publish,
 				method = RequestMethod.GET
-			)
-	
+			)	
 	public DefaultResponse publish(String id);
+	
+	
 	
 	@RequestMapping(
 				value = URLDirectory.removeApp,
 				method = RequestMethod.DELETE
-			)
-	
+			)	
 	public DefaultResponse removeApp(String id);
+	
 	
 	
 	@RequestMapping(
