@@ -12,7 +12,7 @@ public class SignupRequest {
 	private String name;
 	
 	@JsonCreator
-	public SignupRequest(@JsonProperty("name") String uname,@JsonProperty("password") String pwd,@JsonProperty("name") String name){
+	public SignupRequest(@JsonProperty("username") String uname,@JsonProperty("password") String pwd,@JsonProperty("name") String name){
 		username = uname;
 		password = pwd;
 		this.name = name;
