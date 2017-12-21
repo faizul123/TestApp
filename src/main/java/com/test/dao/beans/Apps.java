@@ -1,10 +1,8 @@
 package com.test.dao.beans;
 
-import javax.persistence.Entity;
-
-@Entity()
 public class Apps {
 
+	
 	private String id;
 	
 	private String version;
@@ -16,8 +14,6 @@ public class Apps {
 	private long createdTime;
 	
 	private long modifiedTime;
-
-	protected Apps(){}
 	
 	public String getId() {
 		return id;

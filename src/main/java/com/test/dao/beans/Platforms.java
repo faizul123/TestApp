@@ -1,11 +1,8 @@
 package com.test.dao.beans;
 
-import javax.persistence.Entity;
-
-@Entity
 public class Platforms {
 
-	private String buildId;
+	private String appId;
 	
 	private String platform;
 	
@@ -14,11 +11,11 @@ public class Platforms {
 	private String archType;
 
 	public void setBuildId(String buildId){
-		this.buildId = buildId;
+		this.appId = buildId;
 	}
 	
 	public String getBuildId(){
-		return this.buildId;
+		return this.appId;
 	}
 	
 	public String getPlatform() {
