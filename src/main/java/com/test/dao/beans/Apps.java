@@ -1,5 +1,8 @@
 package com.test.dao.beans;
 
+import javax.persistence.Entity;
+
+@Entity()
 public class Apps {
 
 	private String id;
@@ -7,10 +10,6 @@ public class Apps {
 	private String version;
 	
 	private boolean isCurrentVersion;
-	
-	private String platform;
-	
-	private String supportedVersions;
 	
 	private String buildId;
 	
@@ -42,22 +41,6 @@ public class Apps {
 
 	public void setCurrentVersion(boolean isCurrentVersion) {
 		this.isCurrentVersion = isCurrentVersion;
-	}
-
-	public String getPlatform() {
-		return platform;
-	}
-
-	public void setPlatform(String platform) {
-		this.platform = platform;
-	}
-
-	public String getSupportedVersions() {
-		return supportedVersions;
-	}
-
-	public void setSupportedVersions(String supportedVersions) {
-		this.supportedVersions = supportedVersions;
 	}
 
 	public String getBuildId() {

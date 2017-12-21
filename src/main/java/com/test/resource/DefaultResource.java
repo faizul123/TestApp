@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class DefaultResource implements DefaultResourceInf {
 	@Override
 	public DefaultResponse upload(@RequestParam("file")MultipartFile data) throws FileNotFoundException,IOException {
 		Map<String,Object> map = new HashMap<String,Object>();
-		FileInfo fileInfo = storageService.save(new FileInfo(data,AppConstants.UPLOAD_PATH));
+		FileInfo fileInfo = storageService.save(new FileInfo(data,AppConstants.UPLOAD_PATH)).get();
 		map.put("fileInfo", fileInfo);
 		map.put("message", "Successfully uploaded");
 		return new DefaultResponse(200, map);
@@ -45,12 +46,18 @@ public class DefaultResource implements DefaultResourceInf {
 
 	@Override
 	public ResponseEntity<Resource> download(@RequestParam(name="key")String key) throws IOException {
-		FileInfo info = storageService.get(key);
+		Optional<FileInfo> optional = storageService.get(key);
+		if(optional.isPresent()){
+		FileInfo info = optional.get();
 		ByteArrayResource resource = new ByteArrayResource(info.getBytes());
 		return ResponseEntity.ok()
 				.header("Content-Type", info.getContentType())
 				.header("Content-Disposition", "attachment; filename=" + info.getName())
 				.body(resource);
+		}else{
+			
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 	@Override
