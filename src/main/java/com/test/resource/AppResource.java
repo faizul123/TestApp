@@ -11,9 +11,11 @@ import com.test.response.beans.DefaultResponse;
 @RequestMapping(produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class AppResource implements AppResourceInf {
 
+	
 	@Override
 	public DefaultResponse newApp(AppInfo appInfo) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
